@@ -53,7 +53,9 @@ Basicamente se trata de uma tela de listagem que estará representando uma lista
 
  
 - [Breve descrição do curso](info/infoCursotxt.txt)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
+ 
+
+## Resultados alcançados
 
 [image](info/imagens/configLoginSenhaPortaDbQtdCarta.png)
 
