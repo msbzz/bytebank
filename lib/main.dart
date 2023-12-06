@@ -5,16 +5,23 @@ void main() {
   runApp(ByteBankApp());
 }
 
+
 class ByteBankApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-        home: Scaffold(
-          body: ListaTransferencia(),
-        ));
-  }
+      theme: ThemeData(
+        primaryColor: Colors.green[800],
+        appBarTheme: AppBarTheme(
+          color: Colors.green[800],
+        ),
 
+      ),
+      home: ListaTransferencia(),
+    );
+  }
 }
+
 
 
 class FormularioTransferencia extends StatefulWidget {
@@ -30,13 +37,12 @@ class FormularioTransferenciaState extends State<FormularioTransferencia>{
 final TextEditingController _controllerConta = TextEditingController();
 final TextEditingController _controllerValor = TextEditingController();
 
-
 @override
 Widget build(BuildContext context) {
   return Scaffold(
       appBar: AppBar(
         title: const Text('Criando Transferencias'),
-        backgroundColor: Colors.blue, // Cor do AppBar
+
       ),
       body: SingleChildScrollView(
         child: Column(
@@ -50,6 +56,10 @@ Widget build(BuildContext context) {
                 icone: Icons.monetization_on),
 
             ElevatedButton(
+              style: ButtonStyle(
+                backgroundColor: MaterialStateProperty.all(Colors.blueAccent), // Cor de fundo
+                foregroundColor: MaterialStateProperty.all(Colors.white), // Cor do texto
+              ),
               onPressed: () {
                 _criaTransferencia(context);
               },
@@ -122,8 +132,8 @@ class ListaTransferenciaState extends State<ListaTransferencia> {
     //widget._transferencias.add(Transferencia(321, 30000.29));
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Criando Transferencias'),
-        backgroundColor: Colors.blue, // Cor do AppBar
+         title: const Text('Criando Transferencias'),
+
       ),
       body: ListView.builder(
         itemCount: widget._transferencias.length,
@@ -134,7 +144,8 @@ class ListaTransferenciaState extends State<ListaTransferencia> {
       ),
       floatingActionButton: FloatingActionButton(
         child: Icon(Icons.add),
-
+        backgroundColor: Colors.blueAccent, // Cor de fundo do botão
+        //foregroundColor: Colors.white, // Cor do ícone
         onPressed: () {
           final Future<Transferencia?> future = Navigator.push(
               context, MaterialPageRoute(builder: (context) {
