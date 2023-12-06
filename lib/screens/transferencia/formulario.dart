@@ -5,6 +5,13 @@ import 'package:flutter/material.dart';
 import '../../components/editor.dart';
 import '../../models/transferencia.dart';
 
+const _titualoAppBar ='Criando Transferencias';
+const _rotuloConta = 'Numero da Conta';
+const _dicaConta = '00000';
+const _rotuloValor = 'valor';
+const _dicaValor = '0.00';
+const _textoBtnConfirma ='Confirmar';
+
 class FormularioTransferencia extends StatefulWidget {
 
   @override
@@ -19,21 +26,22 @@ class FormularioTransferenciaState extends State<FormularioTransferencia> {
 
   @override
   Widget build(BuildContext context) {
+    ;
     return Scaffold(
         appBar: AppBar(
-          title: const Text('Criando Transferencias'),
+          title: const Text(_titualoAppBar),
         ),
         body: SingleChildScrollView(
           child: Column(
             children: <Widget>[
               Editor(
                   controlador: _controllerConta,
-                  rotulo: 'Numero da Conta',
-                  dica: '00000'),
+                  rotulo: _rotuloConta,
+                  dica: _dicaConta),
               Editor(
                   controlador: _controllerValor,
-                  rotulo: 'valor',
-                  dica: '0.00',
+                  rotulo: _rotuloValor,
+                  dica: _dicaValor,
                   icone: Icons.monetization_on),
               ElevatedButton(
                 style: ButtonStyle(
@@ -45,7 +53,7 @@ class FormularioTransferenciaState extends State<FormularioTransferencia> {
                 onPressed: () {
                   _criaTransferencia(context);
                 },
-                child: const Text('Confirmar'),
+                child: const Text(_textoBtnConfirma),
               ),
             ],
           ),
@@ -53,9 +61,6 @@ class FormularioTransferenciaState extends State<FormularioTransferencia> {
   }
 
   void _criaTransferencia(BuildContext context) {
-    debugPrint('confirmou !!!');
-    debugPrint('conta ' + _controllerConta.text);
-    debugPrint('valor ' + _controllerValor.text);
 
     final int numConta = int.parse(_controllerConta.text);
     final double valorConta = double.parse(_controllerValor.text);

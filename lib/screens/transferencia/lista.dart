@@ -5,6 +5,8 @@ import 'package:flutter/material.dart';
 import '../../models/transferencia.dart';
 import 'formulario.dart';
 
+const _tituloAppBar ='Criando Transferencias';
+
 class ListaTransferencia extends StatefulWidget {
 
   final List<Transferencia> _transferencias = [];
@@ -21,7 +23,7 @@ class ListaTransferenciaState extends State<ListaTransferencia> {
     //widget._transferencias.add(Transferencia(321, 30000.29));
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Criando Transferencias'),
+        title: const Text(_tituloAppBar),
 
       ),
       body: ListView.builder(
@@ -41,16 +43,18 @@ class ListaTransferenciaState extends State<ListaTransferencia> {
             return FormularioTransferencia();
           }));
 
-          future.then((transferenciaRecebida) {
-            if (transferenciaRecebida != null) {
-              setState(() {
-                widget._transferencias.add(transferenciaRecebida);
-              });
-            }
-          });
+          future.then((transferenciaRecebida) => _atualiza(transferenciaRecebida));
         },
       ),
     );
+  }
+
+  void _atualiza(Transferencia? transferenciaRecebida) {
+     if (transferenciaRecebida != null) {
+      setState(() {
+        widget._transferencias.add(transferenciaRecebida);
+      });
+    }
   }
 }
 
