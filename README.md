@@ -57,17 +57,24 @@ Basicamente se trata de uma tela de listagem que estará representando uma lista
 
 ## Resultados alcançados
 
+- listagem inicial
 
- [image](info/images/app_form1.png)
+![image](info/images/app_form1.png)
 
+- formulario conta em foco
 
-[image](info/images/app_form2.1.png)
+![image](info/images/app_form2.1.png)
 
+- formulario valor em foco
+ 
+![image](info/images/app_form2.2.png)
 
-[image](info/images/app_form2.2.png)
+- formulario conta edição
 
-[image](info/images/app_form3.png)
+![image](info/images/app_form3.png)
 
-[image](info/images/app_form4.png)
+- formulario listagem conta
+
+![image](info/images/app_form4.png)
 
  
